@@ -10,17 +10,21 @@ body{
   padding: 15px;
   border-radius: 15px;
 }
-#pantalla-juego {
-  position: relative;
-  overflow: hidden;
-  user-select: none;
-  background-image: url("../F1-RACE/imagenes/circuito.png");
-  background-position: center;
-  background-size: cover;
-}
+
 .contenedor{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+#caja-juego{
+  width: 801px;
+  height: 1128px;
+  background-image: url("../F1-RACE/imagenes/circuito.png");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+
 }
