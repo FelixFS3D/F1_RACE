@@ -1,0 +1,26 @@
+body{
+  margin: 0;
+  background-color:grey;
+}
+
+
+#boton-inicio {
+  display: flex;
+  background-color: rgb(33, 224, 33);
+  padding: 15px;
+  border-radius: 15px;
+}
+#pantalla-juego {
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  background-image: url("../F1-RACE/imagenes/circuito.png");
+  background-position: center;
+  background-size: cover;
+}
+.contenedor{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
