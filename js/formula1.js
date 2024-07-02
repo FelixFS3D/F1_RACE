@@ -27,7 +27,7 @@ class Formula1 {
     }
   }
   giroDerch() {
-    if (this.x < 800) {
+    if ((this.x + this.w )< cajaJuegoNode.offsetWidth) {
       this.x += this.giro;
       this.node.style.left = `${this.x}px`;
     }

@@ -42,10 +42,11 @@ function bluceJuego() {
 
 
   });
-  cartelesArr.forEach((eachCArteles)=>{
-    eachCArteles.movimientoAutomaticoCarteles();
+  cartelesArr.forEach((eachCarteles)=>{
+    eachCarteles.movimientoAutomaticoCarteles();
         })
   colisionCocheMancha()
+  colisionCocheCartel()
 }
 
 function aparecenManchas() {
@@ -71,12 +72,12 @@ function aparecenManchas() {
 function aparecenCarteles() {
  
   
-  let posicionAleatoriaY = Math.floor(Math.random() * -200);
-  let distanciaEntreCartelesY = 300;
-  let cartelDerecho = new Cartel(posicionAleatoriaY,"derecha");
+  
+  
+  let cartelDerecho = new Cartel("derecha");
   cartelesArr.push(cartelDerecho);
 
-  let cartelIzquierdo = new Cartel(posicionAleatoriaY - distanciaEntreCartelesY,"izquierda");
+  let cartelIzquierdo = new Cartel("izquierda");
   cartelesArr.push(cartelIzquierdo);
   
 }
@@ -87,6 +88,20 @@ function colisionCocheMancha(){
       coche.x + coche.w > eachManchas.x &&
       coche.y < eachManchas.y + eachManchas.h &&
       coche.y + coche.h > eachManchas.y
+    ){
+      console.log("accidente")
+  gameOver()
+    }
+  })
+  
+}
+function colisionCocheCartel(){
+  cartelesArr.forEach((eachCarteles)=>{
+    if(
+      coche.x < eachCarteles.x + eachCarteles.w &&
+      coche.x + coche.w > eachCarteles.x &&
+      coche.y < eachCarteles.y + eachCarteles.h &&
+      coche.y + coche.h > eachCarteles.y
     ){
       console.log("accidente")
   gameOver()

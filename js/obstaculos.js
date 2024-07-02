@@ -27,17 +27,20 @@ class Mancha {
   }
 }
 class Cartel {
-  constructor(posicionY, tipo) {
+  constructor(tipo) {
+    this.node = document.createElement("img");
     if (tipo === "izquierda") {
       this.node.src = "./imagenes/cartelPublicitario.png";
+      this.x = 30;
     } else if (tipo === "derecha") {
       this.node.src = "./imagenes/cartelPublicitario.png";
+      this.x = 635;
     }
 
     cajaJuegoNode.append(this.node);
-
-    this.x = 0;
-    this.y = posicionY;
+    console.log("obstaculo creandose");
+    
+    this.y = 0;
     this.w = 125;
     this.h = 45;
 
@@ -51,5 +54,5 @@ class Cartel {
   movimientoAutomaticoCarteles() {
     this.y += this.velocidad;
     this.node.style.top = `${this.y}px`;
-}
+  }
 }
