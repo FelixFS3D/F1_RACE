@@ -38,15 +38,13 @@ function empezarJuego() {
 function bluceJuego() {
   manchasArr.forEach((eachManchas) => {
     eachManchas.movimientoAutomaticoManchas();
-    
-
-
   });
-  cartelesArr.forEach((eachCarteles)=>{
+  cartelesArr.forEach((eachCarteles) => {
     eachCarteles.movimientoAutomaticoCarteles();
-        })
-  colisionCocheMancha()
-  colisionCocheCartel()
+  });
+  colisionCocheMancha();
+  colisionCocheCartel();
+  desaparencenManchas();
 }
 
 function aparecenManchas() {
@@ -67,54 +65,66 @@ function aparecenManchas() {
     "izquierda"
   );
   manchasArr.push(manchaizquierda);
-  
 }
 function aparecenCarteles() {
- 
-  
-  
-  
   let cartelDerecho = new Cartel("derecha");
   cartelesArr.push(cartelDerecho);
 
   let cartelIzquierdo = new Cartel("izquierda");
   cartelesArr.push(cartelIzquierdo);
-  
 }
-function colisionCocheMancha(){
-  manchasArr.forEach((eachManchas)=>{
-    if(
+function colisionCocheMancha() {
+  manchasArr.forEach((eachManchas) => {
+    if (
       coche.x < eachManchas.x + eachManchas.w &&
       coche.x + coche.w > eachManchas.x &&
       coche.y < eachManchas.y + eachManchas.h &&
       coche.y + coche.h > eachManchas.y
-    ){
-      console.log("accidente")
-  gameOver()
+    ) {
+      console.log("accidente");
+      gameOver();
     }
-  })
-  
+  });
 }
-function colisionCocheCartel(){
-  cartelesArr.forEach((eachCarteles)=>{
-    if(
+function colisionCocheCartel() {
+  cartelesArr.forEach((eachCarteles) => {
+    if (
       coche.x < eachCarteles.x + eachCarteles.w &&
       coche.x + coche.w > eachCarteles.x &&
       coche.y < eachCarteles.y + eachCarteles.h &&
       coche.y + coche.h > eachCarteles.y
-    ){
-      console.log("accidente")
-  gameOver()
+    ) {
+      console.log("accidente");
+      gameOver();
     }
-  })
-  
+  });
+}
+function desaparencenManchas() {
+  let primeraMancha = manchasArr[0];
+  if (
+    primeraMancha &&
+    primeraMancha.y > 0(cajaJuegoNode.offsetHeight + primeraMancha.h)
+  ) {
+    manchasArr.shift();
+    primeraMancha.node.remove();
+  }
+}
+function desaparecenCarteles() {
+  let primerCartel = cartelesArr[0];
+  if (
+    primerCartel &&
+    primerCartel.y > 0(cajaJuegoNode.offsetHeight + primerCartel.h)
+  ) {
+    cartelesArr.shift();
+    primerCartel.node, remove();
+  }
 }
 
 function gameOver() {
   clearInterval(mainInterval);
   clearInterval(obstaculosInterval);
-  pantallaJuegoNode.style.display = "none"
-  pantallaFinalNode.style.display = "flex"
+  pantallaJuegoNode.style.display = "none";
+  pantallaFinalNode.style.display = "flex";
 }
 //EVENT LISTNERS
 botonInicioNode.addEventListener("click", () => {
@@ -123,9 +133,7 @@ botonInicioNode.addEventListener("click", () => {
 window.addEventListener("keydown", (event) => {
   if (event.key === "ArrowLeft") {
     coche.giroIzq();
-  }
-  else if(event.key === "ArrowRight"){
+  } else if (event.key === "ArrowRight") {
     coche.giroDerch();
-    
   }
 });

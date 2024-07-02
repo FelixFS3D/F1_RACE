@@ -18,7 +18,7 @@ class Mancha {
     this.node.style.top = `${this.y}px`;
     this.node.style.width = `${this.w}px`;
     this.node.style.height = `${this.h}px`;
-    this.velocidad = 2;
+    this.velocidad = 3;
   }
 
   movimientoAutomaticoManchas() {
@@ -49,7 +49,7 @@ class Cartel {
     this.node.style.top = `${this.y}px`;
     this.node.style.width = `${this.w}px`;
     this.node.style.height = `${this.h}px`;
-    this.velocidad = 2;
+    this.velocidad = 3;
   }
   movimientoAutomaticoCarteles() {
     this.y += this.velocidad;
