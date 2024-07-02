@@ -31,10 +31,10 @@ class Cartel {
     this.node = document.createElement("img");
     if (tipo === "izquierda") {
       this.node.src = "./imagenes/cartelPublicitario.png";
-      this.x = 30;
+      this.x = 10;
     } else if (tipo === "derecha") {
       this.node.src = "./imagenes/cartelPublicitario.png";
-      this.x = 635;
+      this.x = 650;
     }
 
     cajaJuegoNode.append(this.node);

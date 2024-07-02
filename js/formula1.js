@@ -6,7 +6,7 @@ class Formula1 {
 
     this.x = 350;
     this.y = 600;
-    this.w = 88;
+    this.w = 80;
     this.h = 128;
 
     (this.node.style.position = "absolute"),

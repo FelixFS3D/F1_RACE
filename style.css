@@ -1,8 +1,7 @@
-body{
+body {
   margin: 0;
-  background-color:rgb(250, 246, 246);
+  background-color: rgb(250, 246, 246);
 }
-
 
 #boton-inicio {
   display: flex;
@@ -10,14 +9,20 @@ body{
   padding: 15px;
   border-radius: 15px;
 }
+#boton-reinicio {
+  display: flex;
+  background-color: red;
+  padding: 15px;
+  border-radius: 15px;
+}
 
-.contenedor{
+.contenedor {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-#caja-juego{
+#caja-juego {
   width: 801px;
   height: 801px;
   background-image: url("../imagenes/circuito.png");
@@ -26,5 +31,11 @@ body{
   position: relative;
   overflow: hidden;
   user-select: none;
-
+}
+#caja-juego {
+  pointer-events: none;
+}
+#pantalla-juego,
+#pantalla-final {
+  display: none;
 }
