@@ -11,13 +11,14 @@ const cajaJuegoNode = document.querySelector("#caja-juego");
 
 let coche = null;
 let manchasArr = [];
+let cartelesArr = [];
 let mainInterval = null;
 let obstaculosInterval = null;
 
 //FUNCIONES GLOBALES DEL JUEGO
 
 function empezarJuego() {
-  console.log("iniciando juego")
+  console.log("iniciando juego");
   pantallaInicioNode.style.display = "none";
   pantallaJuegoNode.style.display = "flex";
 
@@ -25,45 +26,91 @@ function empezarJuego() {
   console.log(coche);
 
   mainInterval = setInterval(() => {
-    bucleJuego();
+    bluceJuego();
   }, Math.round(1000 / 60));
 
   obstaculosInterval = setInterval(() => {
     aparecenManchas();
+    aparecenCarteles();
   }, 3000);
 }
 
 function bluceJuego() {
-
-
   manchasArr.forEach((eachManchas) => {
-    eachManchas.movimientoAutomatico();
+    eachManchas.movimientoAutomaticoManchas();
+    
+
+
   });
+  cartelesArr.forEach((eachCArteles)=>{
+    eachCArteles.movimientoAutomaticoCarteles();
+        })
+  colisionCocheMancha()
 }
 
-
 function aparecenManchas() {
-  let posicionAleatoriaX = Math.floor(Math.random() * -50);
-  let distanciaEntreManchas = 250;
-  let manchaIzquierda = new Mancha(posicionAleatoriaX, "izquierda");
-  manchasArr.push(manchaIzquierda);
+  let posicionAleatoriaX = Math.floor(Math.random() * 150 + 175);
+  let distanciaEntreManchasX = 225;
+  let posicionAleatoriaY = Math.floor(Math.random() * -200);
+  let distanciaEntreManchasY = 300;
   let manchaDerecha = new Mancha(
-    posicionAleatoriaX + distanciaEntreManchas,
+    posicionAleatoriaX,
+    posicionAleatoriaY,
     "derecha"
   );
   manchasArr.push(manchaDerecha);
+
+  let manchaizquierda = new Mancha(
+    posicionAleatoriaX + distanciaEntreManchasX,
+    posicionAleatoriaY - distanciaEntreManchasY,
+    "izquierda"
+  );
+  manchasArr.push(manchaizquierda);
+  
+}
+function aparecenCarteles() {
+ 
+  
+  let posicionAleatoriaY = Math.floor(Math.random() * -200);
+  let distanciaEntreCartelesY = 300;
+  let cartelDerecho = new Cartel(posicionAleatoriaY,"derecha");
+  cartelesArr.push(cartelDerecho);
+
+  let cartelIzquierdo = new Cartel(posicionAleatoriaY - distanciaEntreCartelesY,"izquierda");
+  cartelesArr.push(cartelIzquierdo);
+  
+}
+function colisionCocheMancha(){
+  manchasArr.forEach((eachManchas)=>{
+    if(
+      coche.x < eachManchas.x + eachManchas.w &&
+      coche.x + coche.w > eachManchas.x &&
+      coche.y < eachManchas.y + eachManchas.h &&
+      coche.y + coche.h > eachManchas.y
+    ){
+      console.log("accidente")
+  gameOver()
+    }
+  })
+  
 }
 
-function gameOver(){
-  clearInterval(mainInterval)
-  clearInterval(obstaculosInterval)
+function gameOver() {
+  clearInterval(mainInterval);
+  clearInterval(obstaculosInterval);
+  pantallaJuegoNode.style.display = "none"
+  pantallaFinalNode.style.display = "flex"
 }
 //EVENT LISTNERS
 botonInicioNode.addEventListener("click", () => {
   empezarJuego();
 });
-cajaJuegoNode.addEventListener("keydown", (event) => {
+window.addEventListener("keydown", (event) => {
   if (event.key === "ArrowLeft") {
     coche.giroIzq();
+  }
+  else if(event.key === "ArrowRight"){
+    coche.giroDerch();
+    
   }
 });

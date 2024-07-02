@@ -1,6 +1,6 @@
 body{
   margin: 0;
-  background-color:grey;
+  background-color:rgb(250, 246, 246);
 }
 
 
@@ -19,8 +19,8 @@ body{
 }
 #caja-juego{
   width: 801px;
-  height: 1128px;
-  background-image: url("../F1-RACE/imagenes/circuito.png");
+  height: 801px;
+  background-image: url("../imagenes/circuito.png");
   background-position: center;
   background-size: cover;
   position: relative;
