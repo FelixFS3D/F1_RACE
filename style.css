@@ -17,7 +17,7 @@ body {
 }
 #pantalla-inicio, #pantalla-final{
   display: flex;
-  background-image: url("../imagenes/circuito.png");
+  background-image: url("./imagenes/circuito.png");
   background-size: cover;
   background-position: center;
 }
@@ -32,7 +32,7 @@ body {
 #caja-juego {
   width: 801px;
   height: 801px;
-  background-image: url("../imagenes/circuito.png");
+  background-image: url("./imagenes/circuito.png");
   background-position: center;
   background-size: cover;
   position: relative;
