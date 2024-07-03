@@ -15,6 +15,13 @@ body {
   padding: 15px;
   border-radius: 15px;
 }
+#pantalla-inicio, #pantalla-final{
+  display: flex;
+  background-image: url("../imagenes/circuito.png");
+  background-size: cover;
+  background-position: center;
+}
+
 
 .contenedor {
   display: flex;

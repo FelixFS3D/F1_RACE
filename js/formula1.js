@@ -15,7 +15,7 @@ class Formula1 {
     this.node.style.width = `${this.w}px`;
     this.node.style.height = `${this.h}px`;
 
-    this.giro = 3;
+    this.giro = 5;
   }
   movimientoAutonomo(){
 

@@ -1,12 +1,14 @@
 //BOTONES
 const botonInicioNode = document.querySelector("#boton-inicio");
+const botonReinicioNode = document.querySelector("#boton-reinicio");
 // PANTALLAS
 const pantallaInicioNode = document.querySelector("#pantalla-inicio");
 const pantallaJuegoNode = document.querySelector("#pantalla-juego");
 const pantallaFinalNode = document.querySelector("#pantalla-final");
 //CAJA DE JUEGO
 const cajaJuegoNode = document.querySelector("#caja-juego");
-
+// ELEMENTOS DE LA PANTALLA DE JUEGO
+const scoreNode = document.querySelector("#tiempo");
 //VARIABLES GLOBALES DEL JUEGO
 
 let coche = null;
@@ -14,7 +16,7 @@ let manchasArr = [];
 let cartelesArr = [];
 let mainInterval = null;
 let obstaculosInterval = null;
-
+let scoreInterval = null
 //FUNCIONES GLOBALES DEL JUEGO
 
 function empezarJuego() {
@@ -33,6 +35,9 @@ function empezarJuego() {
     aparecenManchas();
     aparecenCarteles();
   }, 3000);
+  scoreInterval = setInterval(() => {
+    scoreNode.innerText++;
+  }, 1000);
 }
 
 function bluceJuego() {
@@ -42,6 +47,7 @@ function bluceJuego() {
   cartelesArr.forEach((eachCarteles) => {
     eachCarteles.movimientoAutomaticoCarteles();
   });
+
   colisionCocheMancha();
   colisionCocheCartel();
   desaparencenManchas();
@@ -126,6 +132,22 @@ function gameOver() {
   pantallaJuegoNode.style.display = "none";
   pantallaFinalNode.style.display = "flex";
 }
+function reinicionJuego(){
+  pantallaFinalNode.style.display = "none";
+  pantallaJuegoNode.style.display ="flex";
+  clearInterval(mainInterval);
+  clearInterval(obstaculosInterval);
+  clearInterval(scoreInterval);
+  manchasArr.forEach((eachManchas)=>{
+eachManchas.node.remove()
+  })
+  manchasArr = []
+  cartelesArr.forEach((eachCarteles)=>{
+eachCarteles.node.remove()
+  })
+  cartelesArr = []
+  scoreNode.remove()
+}
 //EVENT LISTNERS
 botonInicioNode.addEventListener("click", () => {
   empezarJuego();
@@ -137,3 +159,7 @@ window.addEventListener("keydown", (event) => {
     coche.giroDerch();
   }
 });
+
+botonReinicioNode.addEventListener("click", () =>{
+reinicionJuego()
+})

@@ -30,10 +30,10 @@ class Cartel {
   constructor(tipo) {
     this.node = document.createElement("img");
     if (tipo === "izquierda") {
-      this.node.src = "./imagenes/cartelPublicitario.png";
+      this.node.src = "./imagenes/cartelIzq.png";
       this.x = 10;
     } else if (tipo === "derecha") {
-      this.node.src = "./imagenes/cartelPublicitario.png";
+      this.node.src = "./imagenes/cartelDer.png";
       this.x = 650;
     }
 
@@ -42,7 +42,7 @@ class Cartel {
     
     this.y = 0;
     this.w = 125;
-    this.h = 45;
+    this.h = 70;
 
     this.node.style.position = "absolute";
     this.node.style.left = `${this.x}px`;
