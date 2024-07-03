@@ -8,6 +8,8 @@ const pantallaFinalNode = document.querySelector("#pantalla-final");
 //CAJA DE JUEGO
 const cajaJuegoNode = document.querySelector("#caja-juego");
 const derrape = document.querySelector("#derrape")
+const coliMancha = document.querySelector("#coliMancha")
+const coliCartel = document.querySelector("#coliCartel")
 // ELEMENTOS DE LA PANTALLA DE JUEGO
 const scoreNode = document.querySelector("#tiempo");
 //VARIABLES GLOBALES DEL JUEGO
@@ -100,6 +102,7 @@ function colisionCocheMancha() {
       coche.y < eachManchas.y + eachManchas.h &&
       coche.y + coche.h > eachManchas.y
     ) {
+      coliMancha.play()
       console.log("accidente");
       gameOver();
     }
@@ -113,6 +116,8 @@ function colisionCocheCartel() {
       coche.y < eachCarteles.y + eachCarteles.h &&
       coche.y + coche.h > eachCarteles.y
     ) {
+
+      coliCartel.play()
       console.log("accidente");
       gameOver();
     }
