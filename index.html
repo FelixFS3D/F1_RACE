@@ -12,7 +12,12 @@
       <img src="./imagenes/logo.png" alt="" />
 
       <h2>Utiliza las flechas laterales para esquivar las manchas de aceite</h2>
-      <img src="./imagenes/flechaIzq.png" alt=""><img src="./imagenes/coche.png" alt=""><img src="./imagenes/flechaDer.png" alt="">
+      <div class = "instruccion">
+        <img src="./imagenes/flechaIzq.png" alt="">
+        <img src="./imagenes/coche.png" alt="">
+        <img src="./imagenes/flechaDer.png" alt="">
+      </div>
+      
       <h2>Por el verde se puede ir pero ojo con la señalización</h3>
       <input type="Pilot" />
       <button id="boton-inicio">START</button>
@@ -21,10 +26,11 @@
     <!-- PANTALLA DE JUEGO -->
     <div id="pantalla-juego" class="contenedor">
       <h1>Score: <span id ="tiempo">0</span></h1>
-    <div id = "caja-juego">
+    <div id = "caja-juego" >
       <audio id = "derrape" src="./sonidos/derrape.m4a"></audio> 
       <audio id = "coliMancha"src="./sonidos/coliMancha.m4a"></audio> 
       <audio id = "coliCartel"src="./sonidos/coliCartel.m4a"></audio>
+      <audio id = "pasadaCoche"src="./sonidos/sonidoCoche.m4a"></audio>
     </div>
     </div>
 
@@ -40,5 +46,6 @@
     <script src="./js/main.js"></script>
     <script src="./js/formula1.js"></script>
     <script src="./js/obstaculos.js"></script>
+    <script src="./js/metas.js"></script>
   </body>
 </html>

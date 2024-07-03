@@ -1,10 +1,11 @@
 class Meta {
   constructor() {
-    this.node = document.querySelector("img");
+    this.node = document.createElement("img");
     this.node.src = "./imagenes/logo.png";
     cajaJuegoNode.append(this.node);
-    this.x = 0;
-    this.y = 0;
+    console.log("meta creandose")
+    this.x = 50;
+    this.y = -400;
     this.w = 704;
     this.h = 351;
 

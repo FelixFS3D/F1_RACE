@@ -38,7 +38,7 @@ class Cartel {
     }
 
     cajaJuegoNode.append(this.node);
-    console.log("obstaculo creandose");
+    //console.log("obstaculo creandose");
     
     this.y = 0;
     this.w = 125;
