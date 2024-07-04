@@ -144,7 +144,7 @@ function pasadaCocheMeta() {
         coche.y + coche.h > eachMetas.y
       ) {
         pasadaCoche.play();
-        velocidadObstaculos = velocidadObstaculos * 1.75;
+        velocidadObstaculos = velocidadObstaculos * 1.5;
         eachMetas.puedeColisionar = false;
         console.log("incrementando la velocidad");
         //for Each demas elementos
