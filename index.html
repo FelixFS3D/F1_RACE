@@ -19,13 +19,13 @@
       </div>
       
       <h2>Por el verde se puede ir pero ojo con la señalización</h3>
-      <input type="Pilot" />
+      
       <button id="boton-inicio">START</button>
     </div>
 
     <!-- PANTALLA DE JUEGO -->
     <div id="pantalla-juego" class="contenedor">
-      <h1>Score: <span id ="tiempo">0</span></h1>
+      <h1 id="score">Score: <span id ="tiempo">0</span></h1>
     <div id = "caja-juego" >
       <audio id = "derrape" src="./sonidos/derrape.m4a"></audio> 
       <audio id = "coliMancha"src="./sonidos/coliMancha.m4a"></audio> 
@@ -38,6 +38,7 @@
     <!-- PANTALLA FINAL -->
     <div id="pantalla-final" class="contenedor">
 <img src="./imagenes/L.png" alt="">
+<h1 id="score-final">Score: <span id ="tiempo-final">0</span></h1>
       <h1>Apuntate a la autoescuela</h1>
         <button id ="boton-reinicio">Restart</button>
     </div>

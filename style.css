@@ -18,9 +18,14 @@ body {
 #pantalla-inicio, #pantalla-final{
   display: flex;
   background-image: url("./imagenes/circuito.png");
-  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
  
+ 
+}
+#pantalla-juego{
+  background-color: rgb(240, 235, 235);
+  text-decoration-color: honeydew ;
 }
 
 #instruccion {

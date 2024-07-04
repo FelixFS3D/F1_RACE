@@ -1,5 +1,5 @@
 class Meta {
-  constructor() {
+  constructor(velocidad) {
     this.node = document.createElement("img");
     this.node.src = "./imagenes/logo.png";
     cajaJuegoNode.append(this.node);
@@ -8,13 +8,14 @@ class Meta {
     this.y = -400;
     this.w = 704;
     this.h = 351;
-
+    
+    this.puedeColisionar = true
     this.node.style.position = "absolute";
     this.node.style.left = `${this.x}px`;
     this.node.style.top = `${this.y}px`;
     this.node.style.width = `${this.w}px`;
     this.node.style.height = `${this.h}px`;
-    this.velocidad = 3;
+    this.velocidad = velocidad;
   }
   movimientoAutomaticoMetas(){
     this.y += this.velocidad  

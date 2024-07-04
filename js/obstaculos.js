@@ -1,5 +1,5 @@
 class Mancha {
-  constructor(posicionX, posicionY, tipo) {
+  constructor(posicionX, posicionY, tipo, velocidad) {
     this.node = document.createElement("img");
     if (tipo === "izquierda") {
       this.node.src = "./imagenes/manchaizq.png";
@@ -18,16 +18,19 @@ class Mancha {
     this.node.style.top = `${this.y}px`;
     this.node.style.width = `${this.w}px`;
     this.node.style.height = `${this.h}px`;
-    this.velocidad = 3;
+    this.velocidad = velocidad;
   }
 
   movimientoAutomaticoManchas() {
     this.y += this.velocidad;
     this.node.style.top = `${this.y}px`;
+
+
+    
   }
 }
 class Cartel {
-  constructor(tipo) {
+  constructor(tipo,velocidad) {
     this.node = document.createElement("img");
     if (tipo === "izquierda") {
       this.node.src = "./imagenes/cartelIzq.png";
@@ -49,7 +52,7 @@ class Cartel {
     this.node.style.top = `${this.y}px`;
     this.node.style.width = `${this.w}px`;
     this.node.style.height = `${this.h}px`;
-    this.velocidad = 3;
+    this.velocidad = velocidad;
   }
   movimientoAutomaticoCarteles() {
     this.y += this.velocidad;
