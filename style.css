@@ -1,37 +1,63 @@
 body {
-  margin: 0;
-  background-color: rgb(250, 246, 246);
+ display: flex;
+ flex-direction: column;
+
+  background-color: black
 }
 
 #boton-inicio {
+  color: black;
   display: flex;
-  background-color: rgb(33, 224, 33);
+  background-color: rgb(14, 139, 14);
   padding: 15px;
-  border-radius: 15px;
+  border-radius: 30px;
+  font-size: large;
+  font-weight: 900;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
 }
 #boton-reinicio {
+  color: black;
   display: flex;
   background-color: red;
   padding: 15px;
-  border-radius: 15px;
-}
-#pantalla-inicio, #pantalla-final{
-  display: flex;
-  background-image: url("./imagenes/circuito.png");
-  background-repeat: no-repeat;
-  background-position: center;
- 
- 
-}
-#pantalla-juego{
-  background-color: rgb(240, 235, 235);
-  text-decoration-color: honeydew ;
-}
-
-#instruccion {
-  display: flex;
+  border-radius: 30px;
+  font-size: large;
+  font-weight: 900;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   
 }
+
+
+
+  
+  #pantalla-inicio, #pantalla-final{
+   
+    width: 800px;
+  
+    background-image: url("./imagenes/circuito.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+     margin-top: 75px;
+    
+     -webkit-box-shadow: 0px 0px 69px 23px rgba(19,255,78,0.54); 
+  box-shadow: 0px 0px 69px 23px rgba(19,255,78,0.54);
+  -webkit-border-radius: 18px;
+  border-radius: 18px;
+   
+  }
+
+
+
+#pantalla-juego{
+  color: white;
+  background-color: black  
+  
+}
+
+
 .contenedor {
   display: flex;
   flex-direction: column;
@@ -47,6 +73,10 @@ body {
   position: relative;
   overflow: hidden;
   user-select: none;
+  -webkit-box-shadow: 0px 0px 69px 23px rgba(19,255,78,0.54); 
+box-shadow: 0px 0px 69px 23px rgba(19,255,78,0.54);
+-webkit-border-radius: 18px;
+  border-radius: 18px;
 }
 #caja-juego {
   pointer-events: none;
