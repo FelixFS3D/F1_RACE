@@ -12,7 +12,7 @@ const coliMancha = document.querySelector("#coliMancha");
 const coliCartel = document.querySelector("#coliCartel");
 const pasadaCoche = document.querySelector("#pasadaCoche");
 const salida = document.querySelector("#salida");
-
+const reanuda = document.querySelector("#reanuda");
 // ELEMENTOS DE LA PANTALLA DE JUEGO
 const scoreNode = document.querySelector("#tiempo");
 //ELEMENTOS DE LA PANTALLA FINAL DE JUEGO
@@ -35,6 +35,7 @@ derrape.volume = 0.05;
 pasadaCoche.volume = 0.1;
 coliCartel.volume = 0.05;
 salida.volume = 0.1
+reanuda.volume = 0.1
 //FUNCIONES GLOBALES DEL JUEGO
 
 function empezarJuego() {
@@ -247,6 +248,7 @@ window.addEventListener("keydown", (event) => {
 });
 
 botonReinicioNode.addEventListener("click", () => {
+  reanuda.play()
   reinicionJuego();
 });
 window.addEventListener("keyup", () => {
