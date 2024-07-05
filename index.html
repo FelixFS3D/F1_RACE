@@ -3,47 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>F1 RACE</title>
-<link rel="stylesheet" href="./style.css">
+    <title>F1 RACE</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <!-- PANTALLA DE INICIO -->
     <div id="pantalla-inicio" class="contenedor">
-      <img src="./imagenes/logo.png" alt="" />
+      <div id="pantalla-inicio-caja" class="contenedor">
+        <img src="./imagenes/logo.png" alt="" />
 
-      <h2>Utiliza las flechas laterales para </h2>
-      <h2>esquivar las manchas de aceite</h2>
-      <div class = "instruccion">
-        <img src="./imagenes/flechaIzq.png" alt="">
-        <img src="./imagenes/coche.png" alt="">
-        <img src="./imagenes/flechaDer.png" alt="">
+        <h2>Utiliza las flechas laterales para</h2>
+        <h2>esquivar las manchas de aceite</h2>
+        <div class="instruccion">
+          <img src="./imagenes/flechaIzq.png" alt="" />
+          <img src="./imagenes/coche.png" alt="" />
+          <img src="./imagenes/flechaDer.png" alt="" />
+        </div>
+
+        <h2>Por el verde se puede ir, pero OJO con la señalización</h2>
+
+        <button id="boton-inicio">START</button>
       </div>
-      
-      <h2>Por el verde se puede ir pero ojo con la señalización</h3>
-      
-      <button id="boton-inicio">START</button>
     </div>
 
     <!-- PANTALLA DE JUEGO -->
     <div id="pantalla-juego" class="contenedor">
-      <h1 id="score">Score: <span id ="tiempo">0</span></h1>
-    <div id = "caja-juego" >
-      <audio id = "derrape" src="./sonidos/derrape.m4a"></audio> 
-      <audio id = "coliMancha"src="./sonidos/coliMancha.m4a"></audio> 
-      <audio id = "coliCartel"src="./sonidos/coliCartel.m4a"></audio>
-      <audio id = "pasadaCoche"src="./sonidos/sonidoCoche.m4a"></audio>
-    </div>
-    </div>
 
+        <h1 id="score">Score: <span id="tiempo">0</span></h1>
+        <div id="caja-juego">
+          <audio id="derrape" src="./sonidos/derrape.m4a"></audio>
+          <audio id="coliMancha" src="./sonidos/coliMancha.m4a"></audio>
+          <audio id="coliCartel" src="./sonidos/coliCartel.m4a"></audio>
+          <audio id="pasadaCoche" src="./sonidos/sonidoCoche.m4a"></audio>
+          <audio id="salida" src="./sonidos/salida.m4a"></audio>
+        </div>
+
+    </div>
 
     <!-- PANTALLA FINAL -->
     <div id="pantalla-final" class="contenedor">
-<img src="./imagenes/L.png" alt="">
-<h1 id="score-final">Score: <span id ="tiempo-final">0</span></h1>
-      <h1>Apuntate a la autoescuela</h1>
-        <button id ="boton-reinicio">Restart</button>
+      <div id="pantalla-final-caja" class="contenedor">
+        
+        <img src="./imagenes/L.png" alt="" />
+        <h1 id="score-final">Score: <span id="tiempo-final">0</span></h1>
+        <h1>Apuntate a la autoescuela</h1>
+        <button id="boton-reinicio">Restart</button>
+      </div>
     </div>
-
 
     <script src="./js/main.js"></script>
     <script src="./js/formula1.js"></script>
