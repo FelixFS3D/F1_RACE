@@ -3,7 +3,7 @@ class Meta {
     this.node = document.createElement("img");
     this.node.src = "./imagenes/logo.png";
     cajaJuegoNode.append(this.node);
-    console.log("meta creandose")
+   
     this.x = 50;
     this.y = -400;
     this.w = 704;

@@ -16,7 +16,7 @@ class Formula1 {
     this.node.style.height = `${this.h}px`;
 
     this.giro = 10;
-    //this.node.style.transition = "trnasform 1s"
+    
   }
   movimientoAutonomo() {}
 
@@ -35,10 +35,7 @@ class Formula1 {
       this.node.style.left = `${this.x}px`;
       this.node.src = "./imagenes/giroDer.png";
       this.node.style.transform = "rotate(10deg)";
-      /*setTimeout(() => {
-        this.node.src = "./imagenes/coche.png";
-        this.node.style.transform = "rotate(0deg)";
-      }, 1000);*/
+    
     }
   }
 }

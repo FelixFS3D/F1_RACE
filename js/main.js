@@ -13,6 +13,7 @@ const coliCartel = document.querySelector("#coliCartel");
 const pasadaCoche = document.querySelector("#pasadaCoche");
 // ELEMENTOS DE LA PANTALLA DE JUEGO
 const scoreNode = document.querySelector("#tiempo");
+//ELEMENTOS DE LA PANTALLA FINAL DE JUEGO
 const scoreFinalNode = document.querySelector("#tiempo-final");
 //VARIABLES GLOBALES DEL JUEGO
 
@@ -26,6 +27,7 @@ let scoreInterval = null;
 let metasInterval = null;
 let velocidadJuego = 3000;
 let velocidadObstaculos = 4;
+//AJUSTES VOLUMENES AUDIOS
 coliMancha.volume = 0.05;
 derrape.volume = 0.05;
 pasadaCoche.volume = 0.1;
@@ -33,12 +35,10 @@ coliCartel.volume = 0.05;
 //FUNCIONES GLOBALES DEL JUEGO
 
 function empezarJuego() {
-  console.log("iniciando juego");
   pantallaInicioNode.style.display = "none";
   pantallaJuegoNode.style.display = "flex";
   scoreNode.innerText = 0;
   coche = new Formula1();
-  console.log(coche);
 
   mainInterval = setInterval(() => {
     bluceJuego();
@@ -71,9 +71,10 @@ function bluceJuego() {
   colisionCocheCartel();
   pasadaCocheMeta();
   desaparencenManchas();
-  desaparecenCarteles()
+  desaparecenCarteles();
+  desaparecenMetas();
 }
-
+//UNCIONES ELEMENTOS JUEGO
 function aparecenManchas() {
   let posicionAleatoriaX = Math.floor(Math.random() * 150 + 175);
   let distanciaEntreManchasX = 225;
@@ -106,6 +107,7 @@ function aparecenMetas() {
   let metas = new Meta(velocidadObstaculos);
   metasArr.push(metas);
 }
+//FUNCIONES COLISIONES
 function colisionCocheMancha() {
   manchasArr.forEach((eachManchas) => {
     if (
@@ -115,7 +117,7 @@ function colisionCocheMancha() {
       coche.y + coche.h > eachManchas.y
     ) {
       coliMancha.play();
-      console.log("accidente");
+
       gameOver();
     }
   });
@@ -146,8 +148,7 @@ function pasadaCocheMeta() {
         pasadaCoche.play();
         velocidadObstaculos = velocidadObstaculos * 1.5;
         eachMetas.puedeColisionar = false;
-        //console.log("incrementando la velocidad");
-      
+
         cartelesArr.forEach((eachCarteles) => {
           eachCarteles.velocidad = velocidadObstaculos;
         });
@@ -159,29 +160,38 @@ function pasadaCocheMeta() {
     }
   });
 }
+//FUNCIONES LIMPIEZA DE ELEMENTOS
 function desaparencenManchas() {
   let primeraMancha = manchasArr[0];
   if (
     primeraMancha &&
-    primeraMancha.y >= (cajaJuegoNode.offsetHeight + primeraMancha.h)
+    primeraMancha.y >= cajaJuegoNode.offsetHeight + primeraMancha.h
   ) {
     manchasArr.shift();
     primeraMancha.node.remove();
-    //console.log("desaparece mancha")
   }
 }
 function desaparecenCarteles() {
   let primerCartel = cartelesArr[0];
   if (
     primerCartel &&
-    primerCartel.y >= (cajaJuegoNode.offsetHeight + primerCartel.h)
+    primerCartel.y >= cajaJuegoNode.offsetHeight + primerCartel.h
   ) {
     cartelesArr.shift();
     primerCartel.node.remove();
-    //console.log("desaparece cartel")
   }
 }
-
+function desaparecenMetas() {
+  let primeraMeta = metasArr[0];
+  if (
+    primeraMeta &&
+    primeraMeta.y >= cajaJuegoNode.offsetHeight + primeraMeta.h
+  ) {
+    metasArr.shift();
+    primeraMeta.node.remove();
+  }
+}
+//FUNCIONES FINALES
 function gameOver() {
   clearInterval(mainInterval);
   clearInterval(obstaculosInterval);
@@ -208,13 +218,10 @@ function gameOver() {
 function reinicionJuego() {
   pantallaFinalNode.style.display = "none";
   pantallaJuegoNode.style.display = "flex";
-  // clearInterval(mainInterval);
-  // clearInterval(obstaculosInterval);
-  // clearInterval(scoreInterval);
 
   empezarJuego();
 }
-//EVENT LISTNERS
+//EVENT LISTENERS
 botonInicioNode.addEventListener("click", () => {
   empezarJuego();
 });
@@ -235,6 +242,5 @@ window.addEventListener("keyup", () => {
   setTimeout(() => {
     coche.node.src = "./imagenes/coche.png";
     coche.node.style.transform = "rotate(0deg)";
-    //console.log("volviendo pa lante");
   }, 100);
 });
